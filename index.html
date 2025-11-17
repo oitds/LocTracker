@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0;url=https://e2a0116adb86.ngrok-free.app/LocTracker">
-    <script>
-        // Fallback in case meta refresh fails
-        window.location.href = "https://e2a0116adb86.ngrok-free.app/LocTracker";
-    </script>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<script>
+    // Enter your URL here (change this one line to redirect)
+    const targetURL = "https://e2a0116adb86.ngrok-free.app?LocTracker";
+
+    // Meta refresh fallback
+    document.write('<meta http-equiv="refresh" content="0;url=' + targetURL + '">');
+
+    // JavaScript redirect
+    window.location.href = targetURL;
+</script>
 </head>
 <body>
-    <p>Redirecting to <a href="https://e2a0116adb86.ngrok-free.app">link</a>...</p>
+    <p>Redirecting to <a id="link" href="">link</a>...</p>
+    <script>
+        // Update the link in the page automatically
+        document.getElementById('link').href = targetURL;
+        document.getElementById('link').innerText = targetURL;
+    </script>
 </body>
 </html>
