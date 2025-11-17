@@ -3,35 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
-
-<!-- Prevent browser caching -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-
 <script>
-    // ==== CHANGE THIS ONE VARIABLE ONLY ====
-    const targetURL = "https://3336913cc9b3.ngrok-free.app/LocTracker";
+    // === ONLY CHANGE THIS LINE TO UPDATE TARGET URL ===
+    const targetURL = "https://3336913cc9b3.ngrok-free.app/LocTracker/";
 
-    // Meta refresh fallback
-    document.write('<meta http-equiv="refresh" content="0;url=' + targetURL + '">');
-
-    // JavaScript redirect
-    window.location.href = targetURL;
+    // Force redirect with cache-busting
+    window.location.replace(targetURL + "?_=" + new Date().getTime());
 </script>
 </head>
 <body>
-    <p>Redirecting to <a id="link" href="">link</a>...</p>
-    <script>
-        // Update the clickable link automatically
-        document.getElementById('link').href = targetURL;
-        document.getElementById('link').innerText = targetURL;
-
-        // Optional hot-refresh: auto reload to pick up updates immediately
-        // Comment out the next line if not needed
-        // setTimeout(() => location.reload(true), 2000);
-    </script>
+<p>Redirecting to <a id="link" href="#">link</a>...</p>
+<script>
+    // Update clickable link automatically
+    const link = document.getElementById("link");
+    link.href = targetURL;
+    link.innerText = targetURL;
+</script>
 </body>
 </html>
-
-
