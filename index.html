@@ -3,19 +3,4 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
-<script>
-  // Redirect to redirect.html with cache-busting timestamp
-  window.location.replace("/redirect.html);
-</script>
-</head>
-<body>
-<p>Redirecting to <a id="link" href="#">redirect page</a>...</p>
-<script>
-  // Update clickable link
-  document.getElementById("link").href = "redirect.html";
-  document.getElementById("link").innerText = "redirect page";
-</script>
-</body>
-</html>
-
-
+<meta http-equiv="refresh" content="0;url=/redirect.html">
