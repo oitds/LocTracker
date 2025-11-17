@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
-<meta http-equiv="refresh" content="0;url=/redirect.html">
+<script>
+  // Redirect to redirect.html with cache-busting timestamp
+  window.location.replace("redirect.html?_=" + new Date().getTime());
+</script>
 </head>
 <body>
-<p>Redirecting to <a href="redirect.html">redirect page</a>...</p>
+<p>Redirecting to <a id="link" href="#">redirect page</a>...</p>
+<script>
+  // Update clickable link
+  document.getElementById("link").href = "redirect.html";
+  document.getElementById("link").innerText = "redirect page";
+</script>
 </body>
 </html>
-
