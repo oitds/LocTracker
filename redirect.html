@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<script>
+    // =========================
+    // ONLY CHANGE THIS LINE
+    const targetURL = "https://e12048714b22.ngrok-free.app/LocTracker";
+    // =========================
+
+    // Redirect immediately with cache-busting
+    window.location.replace(targetURL + "?_=" + new Date().getTime());
+</script>
+</head>
+<body>
+<p>Redirecting to <a id="link" href="#">link</a>...</p>
+<script>
+    // Automatically update clickable link
+    const link = document.getElementById("link");
+    link.href = targetURL;
+    link.innerText = targetURL;
+</script>
+</body>
+</html>
