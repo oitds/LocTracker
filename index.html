@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
+
+<!-- Prevent browser caching -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <script>
-    // Enter your URL here (change this one line to redirect)
+    // ==== CHANGE THIS ONE VARIABLE ONLY ====
     const targetURL = "https://35411f1d6f29.ngrok-free.app/LocTracker";
 
     // Meta refresh fallback
@@ -17,9 +23,13 @@
 <body>
     <p>Redirecting to <a id="link" href="">link</a>...</p>
     <script>
-        // Update the link in the page automatically
+        // Update the clickable link automatically
         document.getElementById('link').href = targetURL;
         document.getElementById('link').innerText = targetURL;
+
+        // Optional hot-refresh: auto reload to pick up updates immediately
+        // Comment out the next line if not needed
+        // setTimeout(() => location.reload(true), 2000);
     </script>
 </body>
 </html>
