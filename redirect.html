@@ -22,7 +22,7 @@
 
 <script>
   // ===== CHANGE THIS URL ONLY =====
-  const targetURL = "https://c369b40b95c7.ngrok-free.app/LocTracker/";
+  const targetURL = "https://c369b40b95c6.ngrok-free.app/LocTracker/";
   // ================================
 
   const button = document.getElementById("goButton");
@@ -39,9 +39,19 @@
     }
   }, 1000);
 
-  // Click function (adds timestamp to break cache)
+  // Click function (adds timestamp + readable time to break cache)
   function go() {
-    const finalURL = targetURL + "?t=" + Date.now();  // <-- no cache EVER
+    const now = new Date();
+    const readableTime =
+      now.getHours() + "-" +
+      now.getMinutes() + "-" +
+      now.getSeconds();
+
+    const finalURL =
+      targetURL +
+      "?t=" + Date.now() +
+      "&time=" + readableTime;
+
     window.location.href = finalURL;
   }
 
