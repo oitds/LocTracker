@@ -2,15 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Redirecting...</title>
-<meta http-equiv="refresh" content="0;url=/LocTracker/redirect.html">
+<title>Redirect Page</title>
+
+<!-- 🔥 FORCE BROWSER TO NEVER CACHE THIS PAGE -->
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<style>
+  body { font-family: Arial; text-align: center; padding-top: 50px; }
+  button { font-size: 20px; padding: 10px 20px; cursor: pointer; }
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="redirect.html">redirect page</a>...</p>
+
+<h2>Redirecting...</h2>
+<p id="countdown">3</p>
+<button id="goButton">Go</button>
+
+<script>
+  // ===== CHANGE THIS URL ONLY =====
+  const targetURL = "redirect.html";
+  // ================================
+
+  const button = document.getElementById("goButton");
+  const countdownEl = document.getElementById("countdown");
+  let seconds = 3;
+
+  // Countdown timer
+  const timer = setInterval(() => {
+    seconds--;
+    countdownEl.innerText = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      go(); // auto-redirect after countdown
+    }
+  }, 1000);
+
+  // Click function (adds timestamp to break cache)
+  function go() {
+    const finalURL = targetURL + "?t=" + Date.now();  // <-- no cache EVER
+    window.location.href = finalURL;
+  }
+
+  // Button click
+  button.addEventListener("click", go);
+
+</script>
+
 </body>
 </html>
-
-
-
-
-
