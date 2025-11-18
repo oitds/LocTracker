@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirect Page</title>
+
+<!-- 🔥 FORCE BROWSER TO NEVER CACHE THIS PAGE -->
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <style>
   body { font-family: Arial; text-align: center; padding-top: 50px; }
   button { font-size: 20px; padding: 10px 20px; cursor: pointer; }
@@ -29,17 +35,19 @@
     countdownEl.innerText = seconds;
     if (seconds <= 0) {
       clearInterval(timer);
-      go(); // auto-click after 3 sec
+      go(); // auto-redirect after countdown
     }
   }, 1000);
 
-  // Click function
+  // Click function (adds timestamp to break cache)
   function go() {
-    window.location.href = targetURL;
+    const finalURL = targetURL + "?t=" + Date.now();  // <-- no cache EVER
+    window.location.href = finalURL;
   }
 
   // Button click
   button.addEventListener("click", go);
+
 </script>
 
 </body>
